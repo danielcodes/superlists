@@ -13,4 +13,5 @@ start using the unittest library and its helper functions
 Chapter 3, unit testing
 -first write failing functional test, follow up with unit tests that fail as well, then write minimal code that passes these unit tests
 -FT, for functionality. UT, for clean and bug free code
-
+-unit test for home page, wrote views 404, mapped url NoneType, create function in views, pass
+-TDD unit-test/code cycle, run tests, minimal code change to address failure
