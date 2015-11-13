@@ -1,8 +1,16 @@
 Note taking for TDD Django
 
-Chapter 1
+Think about how to implement these test for pipeline monitor
+-functional test, ok
+
+Chapter 1, start django project 
 Created first functional test with selenium and set up django boilerplate
 
-Chapter 2
+Chapter 2, functional test
 Functional test, test the application, solve user stories - commented and readable
 start using the unittest library and its helper functions
+
+Chapter 3, unit testing
+-first write failing functional test, follow up with unit tests that fail as well, then write minimal code that passes these unit tests
+-FT, for functionality. UT, for clean and bug free code
+
