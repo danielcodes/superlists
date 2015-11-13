@@ -1,0 +1,8 @@
+Note taking for TDD Django
+
+Chapter 1
+Created first functional test with selenium and set up django boilerplate
+
+Chapter 2
+Functional test, test the application, solve user stories - commented and readable
+start using the unittest library and its helper functions
