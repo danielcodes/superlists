@@ -33,4 +33,10 @@ Chapter 5, saving user input
 -Django ORM, classes are tables, fields are columns, instances represent rows
 -create the model we want on the test and slowly fill it up through each failing test
 -when default prompt pops up, create default for the field
+-redirect after a POST, to the homepage
+-testing creates it's own database, always check the site manually
+
+
+
+
 
