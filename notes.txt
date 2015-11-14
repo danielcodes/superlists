@@ -22,3 +22,11 @@ Chapter 4, tests?
 -using selenium's api to fill in the rest of the FT, can use bs4 here instead
 -don't test constants rule, test logic flow control and configuration
 -refactor, improve code without changing functionality
+-TDD process, Functional tests, unit tests, unit-test/code cycle, refactoring
+-writing units tests so that the functional test passes
+
+Chapter 5, saving user input
+-If sleepy -> do not proceed any further, likely to write a bunch of typos -> frustration level over 9000
+-testing POST request through terminal only, passing input and checking if it's in the html body
+-red, green and refactor, red - failing test, green - write code to make it pass, refactor - make the code better
+

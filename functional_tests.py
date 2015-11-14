@@ -35,14 +35,17 @@ class NewVisitorTest(unittest.TestCase):
         #on enter, the page updates -> '1. Kendama tricks to learn'
         inputbox.send_keys(Keys.ENTER)
 
+        #there's still a textbox for more entries, he types, 'Around Japan'
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Around Japan')
+        inputbox.send_keys(Keys.ENTER)
+
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1: Kendama tricks to learn' for row in rows),
-            "New to-do item idd not appear in table"
-        )
+        self.assertIn('1: Kendama tricks to learn', [row.text for row in rows]) 
+        self.assertIn('2: Around Japan', [row.text for row in rows])
 
-        #there's still a textbox for more entries, he types, 'Around Japan'
+        #reminder message
         self.fail('Finish the test!') 
 
         #now both items display on the list
