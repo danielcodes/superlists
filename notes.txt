@@ -39,6 +39,7 @@ Chapter 5, saving user input
 Chapter 6, minimum viable site
 -functional test messes with the application itself, needs cleanup aka garbage collection
 -use liveservertestcase to improve functional test, solves the cleanup problem
+-slowing easing into the new view without breaking anything, changed the regex method, not in python 2
 
 
 
