@@ -15,3 +15,7 @@ Chapter 3, unit testing
 -FT, for functionality. UT, for clean and bug free code
 -unit test for home page, wrote views 404, mapped url NoneType, create function in views, pass
 -TDD unit-test/code cycle, run tests, minimal code change to address failure
+
+Chapter 4, tests?
+-TDD is a discipline, force yourself to do it. It's there to help when complexity starts getting out of hand
+-using selenium's api to fill in the rest of the FT, can use bs4 here instead

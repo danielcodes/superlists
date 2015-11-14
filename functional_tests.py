@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
 
 #User Story
@@ -16,13 +17,33 @@ class NewVisitorTest(unittest.TestCase):
         #Tony decides to check out a new todo list app
         self.browser.get('http://localhost:8000')
 
-        #page titel says to-do list
+        #page title and header says to-do list
         self.assertIn('To-Do', self.browser.title)
-        self.fail('Finish the test!')
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('To-Do', header_text)
 
-        #invite Tony to place an item on the list, he types "Kendama tricks to learn"
+        #invite Tony to place an item on the list        
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertEqual(
+                inputbox.get_attribute('placeholder'),
+                'Enter a to-do item'
+        )
+
+        #he types "Kendama tricks to learn"
+        inputbox.send_keys('Kendama tricks to learn')
+
         #on enter, the page updates -> '1. Kendama tricks to learn'
+        inputbox.send_keys(Keys.ENTER)
+
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertTrue(
+            any(row.text == '1: Kendama tricks to learn' for row in rows)
+        )
+
         #there's still a textbox for more entries, he types, 'Around Japan'
+        self.fail('Finish the test!') 
+
         #now both items display on the list
         #will this list be remembered?, Tony sees a unique generated url
         #Tony visits the url, his todo list are there
