@@ -41,7 +41,7 @@ Chapter 6, minimum viable site
 -use liveservertestcase to improve functional test, solves the cleanup problem
 -slowing easing into the new view without breaking anything, changed the regex method, not in python 2
 -goals, items associated with diff lists, list/<category>, list/new, list/cats/<new-cat>
-
+-deleting migratios in dangerous
 
 
 
