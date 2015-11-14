@@ -27,6 +27,10 @@ Chapter 4, tests?
 
 Chapter 5, saving user input
 -If sleepy -> do not proceed any further, likely to write a bunch of typos -> frustration level over 9000
+-test structure, setup, exercise function and assertions
 -testing POST request through terminal only, passing input and checking if it's in the html body
 -red, green and refactor, red - failing test, green - write code to make it pass, refactor - make the code better
+-Django ORM, classes are tables, fields are columns, instances represent rows
+-create the model we want on the test and slowly fill it up through each failing test
+-when default prompt pops up, create default for the field
 
