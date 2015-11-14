@@ -36,6 +36,14 @@ Chapter 5, saving user input
 -redirect after a POST, to the homepage
 -testing creates it's own database, always check the site manually
 
+Chapter 6, minimum viable site
+-functional test messes with the application itself, needs cleanup aka garbage collection
+-use liveservertestcase to improve functional test, solves the cleanup problem
+
+
+
+
+
 
 
 
