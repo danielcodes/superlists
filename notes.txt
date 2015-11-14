@@ -2,6 +2,7 @@ Note taking for TDD Django
 
 Think about how to implement these test for pipeline monitor
 -functional test, ok
+-unit tests, of course
 
 Chapter 1, start django project 
 Created first functional test with selenium and set up django boilerplate
@@ -19,3 +20,5 @@ Chapter 3, unit testing
 Chapter 4, tests?
 -TDD is a discipline, force yourself to do it. It's there to help when complexity starts getting out of hand
 -using selenium's api to fill in the rest of the FT, can use bs4 here instead
+-don't test constants rule, test logic flow control and configuration
+-refactor, improve code without changing functionality
