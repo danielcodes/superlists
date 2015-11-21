@@ -44,9 +44,11 @@ Chapter 6, minimum viable site
 -deleting migratios in dangerous
 -stick to copy and paste
 -error where the url wasn't being match, traced back to the view and the error was in the template, the id was not passing properly
+-test isolation, tests should not affect one another, working state to working state listen to the goat, yagni, ya ain't gon need it
 
+BREAK - add test to pipeline
 
-
+Chapter 7, layout and styling, what to test
 
 
 

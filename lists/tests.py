@@ -48,6 +48,7 @@ class ListAndItemModelsTest(TestCase):
 
         first_saved_item = saved_items[0]
         second_saved_item = saved_items[1]
+        #testing constangs here aren't we
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
         self.assertEqual(first_saved_item.list, list_)
         self.assertEqual(second_saved_item.text, 'Item the second')
