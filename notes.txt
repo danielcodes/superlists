@@ -64,19 +64,28 @@ Chapter 8, testing deployment using a staging site
 -need permissions for provisioning, not deployment
 
 On server side
+STAGING
 create a dir sites/, each each site, stage/ has 4 subfolders, database, source, static and virtualenv
+if venv is managed with wrapper no need of one folder
+create simple nginx config file and place in sites-available, create symlink to site-enableb/
+make sure dev server can be started up, create databse and run tests again, the site should be ok
 
+DEPLOYMENT
+get gunicorm, the inner superlists.wsgi:application
+initially no CSS, need to tell nginx about static files, do a collect static
+define the static page in the nginx config file, reload nginx and start gunicorn
+both sites, stage and live can both use port 8000, use unix sockets
+some change in the nginx file and bind gunicorn
+switch debug off and fill in allowed hosts
+start gunicorm on boot, and reload if it crashes, use upstart
 
-
-
+messed up the upstart job
+use 'init-checkconf <file>' to 'ok' the syntax
 
 going through a crapload of reading
 ok, so first on the domain page registrar, we must poing to the digital ocean's name servers
 after that's done, we can use A names to refer to the domain url, creating things such as test.domain.com
 the question is, how can there be 2 sites generated, staging and production, wouldn't we need two servers?
-
-
-
 
 
 
