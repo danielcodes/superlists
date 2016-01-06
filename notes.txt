@@ -51,6 +51,19 @@ BREAK - add test to pipeline
 Chapter 7, layout and styling, what to test
 -grab bootstrap and throw it inside static files
 -used a confusing test to check that things are centered
+-using collectstatic for a web server to easily serve static files, wish I'd read this before deploying T_T
+-things to look into, LESS, use {% static %} tag, bower
+-do light tests on design and layout
+
+Chapter 8, testing deployment using a staging site
+-danger areas: static files, database and dependencies
+-workflow, staging site, run tests, use virtualenvs, and automate deployments
+
+
+
+
+
+
 
 
 
