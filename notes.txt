@@ -107,6 +107,28 @@ Chapter 9, automating deployment with fabric
 use a fab file to automate deployment
 the file contains functions that take care of the process, create dir structure, pulling down git repo
 down to updating the settings, static files, database and virtualenv
+took 3 tries, but alas got it, messed up the name TWICE
+can create marks of significant phases in source code, use git tag 'name', then git push origin 'tag-name'
+
+======================== END OF CHAPTER ===============================
+
+Chapter 10, input validation and test organization
+blank inputs and repeated inputs, on both the main create list page, and each individual list
+one test file for each class, a 'base' class that all tests will inherit from
+refactor FT's into their own individual file
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

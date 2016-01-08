@@ -1,41 +1,8 @@
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from .base import FunctionalTest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import sys
-import unittest
 
-#User Story
-class NewVisitorTest(StaticLiveServerTestCase):
-
-    @classmethod
-    #if there is liveserver in url, store it and get out?
-    def setUpClass(cls):
-        for arg in sys.argv:
-            if 'liveserver' in arg:
-                cls.server_url = 'http://' + arg.split('=')[1]
-                return
-        super().setUpClass()
-        cls.server_url = cls.live_server_url
-
-    @classmethod
-    def tearDownClass(cls):
-        if cls.server_url == cls.live_server_url:
-            super().tearDownClass()
-
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-        #waits for site to load before checking things
-        self.browser.implicitly_wait(3)
-
-    def tearDown(self):
-        self.browser.quit()
-
-    #find the table, gets the rows
-    #subsequently check the passed parameter with all the table rows's data
-    def check_for_row_in_list_table(self, row_text):
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn(row_text, [row.text for row in rows])
+class NewVisitorTest(FunctionalTest):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         #Tony decides to check out a new todo list app
@@ -105,34 +72,4 @@ class NewVisitorTest(StaticLiveServerTestCase):
 
         #reminder message
         # self.fail('Finish the test!') 
-
-        #now both items display on the list
-        #will this list be remembered?, Tony sees a unique generated url
-        #Tony visits the url, his todo list are there
-        #Over
-
-
-    def test_layout_and_styling(self):
-        # Edith goes to the home page
-        self.browser.get(self.server_url)
-        self.browser.set_window_size(1024, 768)
-
-        # She notices the input box is nicely centered
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertAlmostEqual(
-            #dont understand what it is grabing, why location and size
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            512,
-            delta=5
-        )
-
-        # test that on a new list, box is also center aligned
-        inputbox.send_keys('testing\n')
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            512,
-            delta=5
-        )
-
 
