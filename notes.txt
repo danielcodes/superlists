@@ -117,19 +117,7 @@ blank inputs and repeated inputs, on both the main create list page, and each in
 one test file for each class, a 'base' class that all tests will inherit from
 refactor FT's into their own individual file
 can validate input at two levels, model and form levels
-
-
-
-
-
-
-
-
-
-
-
-
-
+separated the unit tests as well, first into their own folder and then into files
 
 
 
