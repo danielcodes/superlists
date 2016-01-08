@@ -116,6 +116,7 @@ Chapter 10, input validation and test organization
 blank inputs and repeated inputs, on both the main create list page, and each individual list
 one test file for each class, a 'base' class that all tests will inherit from
 refactor FT's into their own individual file
+can validate input at two levels, model and form levels
 
 
 
