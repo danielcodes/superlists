@@ -130,8 +130,9 @@ change that in the template, then create the test and THEN change the production
 -the ft is still failing when we try to add an empty item in a list
 to fix this, add a test and fix the view, for a list on post, look out for a validation error
 still don't understand why you need to do a save after full_clean??
-
-
+might need a second look at this absolute url thing
+on redirect, if the model has an absolute url, it looks for it there
+there were 3 refactors for hardcoded urls, in templates use url name, in views define absolute url and model object to redirect, duplication of logic in views...
 
 
 
