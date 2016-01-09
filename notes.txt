@@ -113,11 +113,18 @@ can create marks of significant phases in source code, use git tag 'name', then 
 ======================== END OF CHAPTER ===============================
 
 Chapter 10, input validation and test organization
+refactoring
 blank inputs and repeated inputs, on both the main create list page, and each individual list
 one test file for each class, a 'base' class that all tests will inherit from
 refactor FT's into their own individual file
 can validate input at two levels, model and form levels
 separated the unit tests as well, first into their own folder and then into files
+good practice to make tests/ right away, along with test_forms.py
+forms
+confused, model save doesn't run validation
+first a model test and then test on the view, fails in the models and passes to the view?
+view test must modify view, add error span to the template and be careful with escape characters
+full clean is confusing
 
 
 
