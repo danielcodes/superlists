@@ -6,29 +6,19 @@ from django.utils.html import escape
 
 from lists.views import home_page
 from lists.models import Item, List
+from lists.forms import ItemForm
 
 class HomePageTest(TestCase):
 
-    #tests that root goes to home page?
-    #in pipe, I can test that / goes to app.view index?
-    #can test that all url paths resolve properly, there's quite a few
-    def test_root_url_resolves_to_home_page_view(self):
-        #resolves url path to corresponding function
-        found = resolve('/')
-        # print found
-        # print found.func
-        # print home_page
-        self.assertEqual(found.func, home_page)
+    #new assertions, assertions, usuall source, component
+    def test_home_page_renders_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'home.html')
 
-    #call the homepage view, and checking that it has the correct html
-    #can be applied to each page in pipeline
-    def test_home_page_returns_correct_html(self):
-        request = HttpRequest()
-        response = home_page(request)
-        expected_html = render_to_string('home.html')
-        #content returns bytes, decode to python unicode string
-        self.assertEqual(response.content.decode(), expected_html)
-
+    def test_home_page_uses_item_form(self):
+        response = self.client.get('/')
+        self.assertIsInstance(response.context['form'], ItemForm)
+    
 
 #create a list and pass it to a url path
 #check that it is using the respective template

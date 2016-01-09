@@ -147,6 +147,9 @@ forms in django can, process input and validate, used in templates to render htm
 customize forms with widget, for larger forms use crispy or floppy
 development driven tests, use unit to explore an API
 auto-generate a form for a model with ModelForm, meta class to define the model and fields to display
+created a form and tested it, now use it in the view
+updated the input tag on the template with a field from the form, following units test
+
 
 
 

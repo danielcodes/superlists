@@ -23,10 +23,9 @@
 
 				<!--form for new list-->
 				<form method="POST" action="{% block form_action %}{% endblock %}">
-					<input name="item_text" id="id_new_item"
-						   class="form-control input-lg"
-						   placeholder="Enter a to-do item"
-					/>
+					<!--use a form field-->
+					{{ form.text }}
+
 					{% csrf_token %}
 
 					{% if error %}
