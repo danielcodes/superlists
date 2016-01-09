@@ -124,7 +124,9 @@ forms
 confused, model save doesn't run validation
 first a model test and then test on the view, fails in the models and passes to the view?
 view test must modify view, add error span to the template and be careful with escape characters
-full clean is confusing
-
+full clean is confusing, since it is used to validate empty inputs that means that it is already saving things, why add .save()??
+processing POST requests in same view as render form, on the list view, make the form process in the same view
+change that in the template, then create the test and THEN change the production code
+-the ft is still failing when we try to add an empty item in a list
 
 

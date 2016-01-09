@@ -7,9 +7,13 @@ from lists.models import Item, List
 def home_page(request):
     return render(request, 'home.html')
 
+# handle post here too
 def view_list(request, list_id):
     #only pass items from the list with the given id
     list_ = List.objects.get(id=list_id)
+    if request.method == 'POST':
+        Item.objects.create(text=request.POST['item_text'], list=list_)
+        return redirect('/lists/%d/' % (list_.id,))
     return render(request, 'list.html', {'list': list_})
 
 def new_list(request):
@@ -26,9 +30,3 @@ def new_list(request):
     #rm hardcoded url
     return redirect('/lists/%d/' % (list_.id))
 
-def add_item(request, list_id):
-    #these things magicall pass, it does have code smell
-    list_ = List.objects.get(id=list_id)
-    Item.objects.create(text=request.POST['item_text'], list=list_)
-    return redirect('/lists/%d/' % (list_.id,))
-    
