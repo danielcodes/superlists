@@ -19,19 +19,21 @@ def view_list(request, list_id):
     if request.method == 'POST':
         try:
             # different from how the item was created down there
-            item = Item(text=request.POST['item_text'], list=list_)
+            item = Item(text=request.POST['text'], list=list_)
             item.full_clean()
             item.save()
             return redirect(list_)
         except ValidationError:
+            # form wasnt being passed after this error
             error = "You can't have an empty list item"
+            return  render(request, 'home.html', {"error": error})
 
     return render(request, 'list.html', {'list': list_, 'error': error})
 
 def new_list(request):
     #creating an object
     list_ = List.objects.create()
-    item = Item.objects.create(text=request.POST['item_text'], list=list_)
+    item = Item.objects.create(text=request.POST['text'], list=list_)
     try:
         item.full_clean()
         item.save()
