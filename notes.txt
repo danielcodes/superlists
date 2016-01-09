@@ -128,5 +128,11 @@ full clean is confusing, since it is used to validate empty inputs that means th
 processing POST requests in same view as render form, on the list view, make the form process in the same view
 change that in the template, then create the test and THEN change the production code
 -the ft is still failing when we try to add an empty item in a list
+to fix this, add a test and fix the view, for a list on post, look out for a validation error
+still don't understand why you need to do a save after full_clean??
+
+
+
+
 
 
