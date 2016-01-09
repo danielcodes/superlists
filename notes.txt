@@ -133,6 +133,20 @@ still don't understand why you need to do a save after full_clean??
 might need a second look at this absolute url thing
 on redirect, if the model has an absolute url, it looks for it there
 there were 3 refactors for hardcoded urls, in templates use url name, in views define absolute url and model object to redirect, duplication of logic in views...
+summary
+organize test folders, FTs each in theri on file for their respective user stories, unit test, typically views, models and forms
+red, green and refactor
+don't refactor against failing tests
+unless currently working on that FT, jot down refactor to do once you're back in a working state, don't commit @skips
+
+======================== END OF CHAPTER ===============================
+
+Chapter 11, a simple form
+repetitive logic in views to handle validation -> code smell
+forms in django can, process input and validate, used in templates to render html, can save to DB too
+customize forms with widget, for larger forms use crispy or floppy
+development driven tests, use unit to explore an API
+auto-generate a form for a model with ModelForm, meta class to define the model and fields to display
 
 
 
