@@ -10,36 +10,29 @@ def home_page(request):
     # to be used in the template, OHH
     return render(request, 'home.html', {'form': ItemForm()})
 
+
 # handle post here too
 def view_list(request, list_id):
-    #only pass items from the list with the given id
+
+    # now the error only displays depending on the form constructor
     list_ = List.objects.get(id=list_id)
-    error = None
-
+    form = ItemForm()
     if request.method == 'POST':
-        try:
-            # different from how the item was created down there
-            item = Item(text=request.POST['text'], list=list_)
-            item.full_clean()
-            item.save()
+        form = ItemForm(data=request.POST)
+        if form.is_valid():
+            Item.objects.create(text=request.POST['text'], list=list_)
             return redirect(list_)
-        except ValidationError:
-            # form wasnt being passed after this error
-            error = "You can't have an empty list item"
+    return render(request, 'list.html', {'list': list_, "form": form})
 
-    return render(request, 'list.html', {'list': list_, 'error': error})
 
+# before, create list, get item from post and validate
+# after, pass POST data to form constructor, if ok, create list and item
 def new_list(request):
-    #creating an object
-    list_ = List.objects.create()
-    item = Item.objects.create(text=request.POST['text'], list=list_)
-    try:
-        item.full_clean()
-        item.save()
-    except ValidationError:
-        list_.delete()
-        error = "You can't have an empty list item"
-        return render(request, 'home.html', {"error": error})
-    #rm hardcoded url
-    return redirect(list_)
+    form = ItemForm(data=request.POST)
+    if form.is_valid():
+        list_ = List.objects.create()
+        Item.objects.create(text=request.POST['text'], list=list_)
+        return redirect(list_)
+    else:
+        return render(request, 'home.html', {"form": form})
 

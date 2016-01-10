@@ -153,5 +153,16 @@ switching to a django form, changed the name of id of the input field, this brea
 need for a big find and replace, in the FTs, and every other place where the id and name of the input element was used, use grep
 there was one occurrence in the migrations too, didn't change that, I'm scared
 changed view_list view to render somewher stupid, which in turn created an hour of grief
+--minor setback putting a line where there shouldn't have been and starting way ahead...
+form in a view that takes POST requests
+refactor the way view handles post, now done through the django forms api
+big change is that forms no contains all the data, so call forms.<field>
+-main thing is the error message has not been fixed in the views
+--typos are going to kill me
+a crazy refactor, around an input tag with a change id and name...
+
+
+
+
 
 
