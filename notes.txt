@@ -152,6 +152,6 @@ updated the input tag on the template with a field from the form, following unit
 switching to a django form, changed the name of id of the input field, this breaks test as id is how sele finds elements
 need for a big find and replace, in the FTs, and every other place where the id and name of the input element was used, use grep
 there was one occurrence in the migrations too, didn't change that, I'm scared
-
+changed view_list view to render somewher stupid, which in turn created an hour of grief
 
 
