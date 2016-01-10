@@ -160,6 +160,8 @@ big change is that forms no contains all the data, so call forms.<field>
 -main thing is the error message has not been fixed in the views
 --typos are going to kill me
 a crazy refactor, around an input tag with a change id and name...
+can customize save method on forms, useful in the views, don't have to dig into the POST dictionary
+forms and validation are importante
 
 
 
