@@ -163,6 +163,13 @@ a crazy refactor, around an input tag with a change id and name...
 can customize save method on forms, useful in the views, don't have to dig into the POST dictionary
 forms and validation are importante
 
+======================== END OF CHAPTER ===============================
+
+Chapter 12, more advanced forms
+avoiding duplicate items in the list
+need to make it unique per list, not unique as in the only todo list item
+don't compare django query sets with lists, put the query set in the list constructor
+same db error, changing full_clean to save. type of error related
 
 
 
