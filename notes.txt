@@ -172,7 +172,7 @@ don't compare django query sets with lists, put the query set in the list constr
 same db error, changing full_clean to save. type of error related
 patterns, testing at the model and view layers
 -need to read up on forms and validation
-
-
+created new form for when items are being duplicated
+a problem was that there were 2 types of errors, need different approach to handle
 
 
