@@ -174,5 +174,13 @@ patterns, testing at the model and view layers
 -need to read up on forms and validation
 created new form for when items are being duplicated
 a problem was that there were 2 types of errors, need different approach to handle
+small recap on what to test on views
+
+======================== END OF CHAPTER ===============================
+
+Chapter 13, dipping our toes, very tentatively, into Javascript
+a problem with migrations
+use JS to clean the error when the user start entering an item again
+
 
 
