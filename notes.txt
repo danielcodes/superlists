@@ -181,6 +181,10 @@ small recap on what to test on views
 Chapter 13, dipping our toes, very tentatively, into Javascript
 a problem with migrations
 use JS to clean the error when the user start entering an item again
+many JS test runner options, use QUnit
+testing things inside a tests.html, to reset each test place html inside fixture
+format is test, 1 arg is name, second is a function with assertions
+get some JS work with some tests, and then put that script on base.html
 
 
 
