@@ -189,6 +189,26 @@ trying to write another test to hide error on click makes the test runner go cra
 grabbing all the inputs made it go crazy, need to give the input an id
 use onload boilerplate, document ready function
 
+======================== END OF CHAPTER ===============================
+
+Chapter 14, deploying our new code
+ran fabric script against staging site, log on server restart job
+do the same for live site
+
+======================== END OF CHAPTER ===============================
+
+Chapter 15, user authentication, integrating third party plugins, and mocking with javascript
+opened a new branch, copy and pasted a lot of code to create an auth system
+created an FT that passed, back in master, now rewrite with TDD 
+JS unit tests involving ext components, mocks
+moving static files inside superlist/superlists
+
+
+
+
+
+
+
 
 
 
