@@ -13,7 +13,7 @@
 			<div id="qunit-fixture">
 
 				<form>
-						<input name="text" />
+						<input id=id_text name="text" />
 						<div class="has-error">Error text</div>
 				</form>
 			
@@ -25,11 +25,13 @@
 
 			<script>
 
+				//error gone on keypress
 				test("errors should be hidden on keypress", function () {
-				  $('input').trigger('keypress');
+				  $('#id_text').trigger('keypress');
 					equal($('.has-error').is(':visible'), false);
 				});	
 
+				//error shown by default
 				test("errors not be hidden unless there is a keypress", function () {
 					equal($('.has-error').is(':visible'), true);
 				});

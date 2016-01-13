@@ -185,6 +185,12 @@ many JS test runner options, use QUnit
 testing things inside a tests.html, to reset each test place html inside fixture
 format is test, 1 arg is name, second is a function with assertions
 get some JS work with some tests, and then put that script on base.html
+trying to write another test to hide error on click makes the test runner go crazy...
+grabbing all the inputs made it go crazy, need to give the input an id
+use onload boilerplate, document ready function
+
+
+
 
 
 
