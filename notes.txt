@@ -202,8 +202,15 @@ opened a new branch, copy and pasted a lot of code to create an auth system
 created an FT that passed, back in master, now rewrite with TDD 
 JS unit tests involving ext components, mocks
 moving static files inside superlist/superlists
-
-
+mock, create a fake implementation of the third party API to run tests against
+bind click to id.request method
+work up from errors to an actual test failure
+print to console to see what object is being used
+when an app is added, static files will be looked into the app/static folder
+need to call navigator.id.watch first
+sinon.js for more advanced mocks
+some functions can be part of all objects, watch, need to mock as well
+damn, this is dense, tests outweight code by 5x
 
 
 
