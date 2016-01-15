@@ -3,8 +3,8 @@
 //whatever object is passed, we take the id key and call request
 //request sets the requestcalled var to true
 
-var initialize = function (navigator, user, token, urls) {
-	$('#id_login').on('click', function() {
+var initialize = function(navigator, user, token, urls) {
+    $('#id_login').on('click', function() {
 		navigator.id.request();
 	});
 
@@ -25,6 +25,7 @@ var initialize = function (navigator, user, token, urls) {
 	});
 };
 
+//Superlists is a global object
 window.Superlists = {
 	Accounts: {
 		initialize: initialize 

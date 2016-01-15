@@ -211,12 +211,20 @@ need to call navigator.id.watch first
 sinon.js for more advanced mocks
 some functions can be part of all objects, watch, need to mock as well
 damn, this is dense, tests outweight code by 5x
+spike on new branch, mock to simulate third party APIs, use a mocking framework
 
+======================== END OF CHAPTER ===============================
 
-
-
-
-
+Chapter 16, server-side authentication and mocking in python
+mocking with python and customizing django's auth system
+start by mocking a view, test -> urls -> view, tdd cycle
+sessions, cookies and authentication
+couple of tests for the view, review mocking
+an authentication module
+work on login view and authenticate
+minimal custom user model, weird stuff
+what is primary key?
+things touched on, login view, auth backend, user model, wiring up the template
 
 
 

@@ -74,6 +74,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'superlists.wsgi.application'
 
 
+# here's where the custom stuff comes in?
+AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = (
+    'accounts.authentication.PersonaAuthenticationBackend',
+)
+
+
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 

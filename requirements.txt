@@ -12,6 +12,7 @@ pexpect==4.0.1
 pickleshare==0.5
 ptyprocess==0.5
 pylint==1.4.4
+requests==2.9.1
 selenium==2.48.0
 simplegeneric==0.8.1
 six==1.10.0
