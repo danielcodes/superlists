@@ -232,6 +232,9 @@ need to brush up on mock, patch
 Chapter 17, testing	fixtures, logging, and served-side debugging
 identify users and show them lists that they've created, want to skip persona dialog
 pre-create a session, will need modification later for staging database
-
-
+site was not deploying, needed to push all changes to remote first
+bug where log in is not working, catch bug with logging
+configure gunicorn to write error logs, log statements inside function
+-debugging why the login wasn't working, it said database errors, applied makemig and mig, nothing
+-deleted the database, anddd it works..., time to test on the server
 
