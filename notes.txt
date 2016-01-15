@@ -225,7 +225,13 @@ work on login view and authenticate
 minimal custom user model, weird stuff
 what is primary key?
 things touched on, login view, auth backend, user model, wiring up the template
+need to brush up on mock, patch
 
+======================== END OF CHAPTER ===============================
+
+Chapter 17, testing	fixtures, logging, and served-side debugging
+identify users and show them lists that they've created, want to skip persona dialog
+pre-create a session, will need modification later for staging database
 
 
 
