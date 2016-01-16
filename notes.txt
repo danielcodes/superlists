@@ -237,4 +237,14 @@ bug where log in is not working, catch bug with logging
 configure gunicorn to write error logs, log statements inside function
 -debugging why the login wasn't working, it said database errors, applied makemig and mig, nothing
 -deleted the database, anddd it works..., time to test on the server
+set the domain variable in settings.py
+pre-authenticate fails for a similar reason, its acting on the local db not the server one
+create management commands, have to use a subprocess to run fabric since it is python2
+
+
+
+
+
+
+
 

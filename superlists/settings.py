@@ -25,7 +25,10 @@ SECRET_KEY = '@ayeyjvq0wocy$584h2=8$-#6n=p01(t!0(z&m+^lnpn&&g4m%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# change on deploy script
+DOMAIN = "localhost"
+
+ALLOWED_HOSTS = [DOMAIN]
 
 
 # Application definition
@@ -40,6 +43,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'lists',
     'accounts',
+    'functional_tests',
 )
 
 MIDDLEWARE_CLASSES = (
