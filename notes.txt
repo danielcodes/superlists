@@ -240,8 +240,8 @@ configure gunicorn to write error logs, log statements inside function
 set the domain variable in settings.py
 pre-authenticate fails for a similar reason, its acting on the local db not the server one
 create management commands, have to use a subprocess to run fabric since it is python2
-
-
+**do a passwordless ssh next time, quite painful to have to type the password everytime a test runs
+fix up logging, mock it, I don't know what is going on anymore
 
 
 
