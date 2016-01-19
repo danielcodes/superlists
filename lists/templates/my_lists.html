@@ -8,8 +8,12 @@
 	<h2>{{ owner.email }}'s lists</h2>
 
 	<ul>
+		<!--get the lists attached to an email-->
 		{% for list in owner.list_set.all %}
+
+			<!--each list has its own url, cool	-->
 			<li><a href="{{ list.get_absolute_url }}">{{ list.name }}</a></li>
+
 		{% endfor %}
 	</ul>
 
