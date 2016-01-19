@@ -197,6 +197,8 @@ do the same for live site
 
 ======================== END OF CHAPTER ===============================
 
+----------------- Where things started to get real --------------------
+
 Chapter 15, user authentication, integrating third party plugins, and mocking with javascript
 opened a new branch, copy and pasted a lot of code to create an auth system
 created an FT that passed, back in master, now rewrite with TDD 
@@ -243,7 +245,14 @@ create management commands, have to use a subprocess to run fabric since it is p
 **do a passwordless ssh next time, quite painful to have to type the password everytime a test runs
 fix up logging, mock it, I don't know what is going on anymore
 
+======================== END OF CHAPTER ===============================
 
+Chapter 18, finishing 'my-lists': outside-in TDD
+outside-in TDD, double loop testing, functional test lead into smaller unit tests
+starting with inner blocks might provide tight coupling
+start with FT, fix basic html (no functionality yet), put a template url on it, write a unit test, add the url on url.py, and create minimal view
+development is driven by our user story, the functional test | programming with wishful thinking, haha
+the new my_lists template has interesting querys from the template
 
 
 
