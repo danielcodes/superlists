@@ -253,6 +253,30 @@ starting with inner blocks might provide tight coupling
 start with FT, fix basic html (no functionality yet), put a template url on it, write a unit test, add the url on url.py, and create minimal view
 development is driven by our user story, the functional test | programming with wishful thinking, haha
 the new my_lists template has interesting querys from the template
+*some lost notes 
+
+======================== END OF CHAPTER ===============================
+
+Chapter 19, test isolation, 'listening to your tests'
+instead of leaving a failing unit test, use mocks to get the views tests to pass
+use mock to make believe the lists have owners
+what the heck does patch do?? we're passing a model object so.. a fake object?
+check that the owner is assigned before calling save
+mock side effects, watch for late assignment and when it was called
+if test is hard to write, view is too complicated, break some logic into a form
+break apart the ugly mocks and start over with full isolation
+check that there is a form, check form validity
+--look into mock...
+create a view with newlistform through wishful thinking, doesnt exist yet
+so from the patch decorator, we're creating fake instances, set their return value
+no need for isolated tests at the model level
+a mock on one layer tells us that we need to write a test for the layer below, a contract
+mocking layers means an expected behaviour that needs to be tested for
+super confused, a lot of jumping around between views, forms and models AND their test files
+ugh, FT's bugging out AGAIN 
+remove redundant code, after a passing test suite
+I panicked, turns out I needed to wipe the old new list and keep the shorter one..
+throw away some integrated tests
 
 
 

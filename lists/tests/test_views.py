@@ -13,7 +13,8 @@ from lists.forms import (
     ExistingListItemForm, ItemForm,
 )
 
-from unittest import skip
+import unittest
+from unittest.mock import patch, Mock
 
 class HomePageTest(TestCase):
 
@@ -144,8 +145,9 @@ class ListViewTest(TestCase):
         self.assertEqual(Item.objects.all().count(), 1)
 
 #test that when you input an item it create a new list
-class NewListTest(TestCase):
+class NewListViewIntegratedTest(TestCase):
 
+    # chunked down tests
     #check that you can post an item
     def test_saving_a_POST_request(self):
         #posting to wrong url though
@@ -157,36 +159,10 @@ class NewListTest(TestCase):
         new_item = Item.objects.first()
         self.assertEqual(new_item.text, 'A new list item')
 
-    #check for a redirect after some user interaction
-    #on pipe, from filterfeeds to userfeeds
-    def test_redirects_after_POST(self):
-        #need to create this new url
-        response = self.client.post(
-            '/lists/new',
-            data={'text': 'A new list item'}
-        )
-        new_list = List.objects.first()
-        #redirect to a new url
-        self.assertRedirects(response, '/lists/%d/' % (new_list.id,))
-
-    def test_for_invalid_input_renders_home_template(self):
-        response = self.client.post('/lists/new', data={'text': ''})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'home.html')
 
     def test_validation_errors_are_shown_on_home_page(self):
         response = self.client.post('/lists/new', data={'text': ''})
         self.assertContains(response, escape(EMPTY_ITEM_ERROR))
-
-    def test_for_invalid_input_passes_form_to_template(self):
-        response = self.client.post('/lists/new', data={'text': ''})
-        self.assertIsInstance(response.context['form'], ItemForm)
-
-    #check for an empty database    
-    def test_invalid_list_items_arent_saved(self):
-        self.client.post('/lists/new', data={'text': ''})
-        self.assertEqual(List.objects.count(), 0)
-        self.assertEqual(Item.objects.count(), 0)
 
 
     def test_list_owner_is_saved_if_user_is_authenticated(self):
@@ -197,7 +173,7 @@ class NewListTest(TestCase):
         list_ = List.objects.first()
         self.assertEqual(list_.owner, request.user)
 
-
+   
 class MyListsTest(TestCase):
 
     def test_my_lists_url_renders_my_lists_template(self):
@@ -213,5 +189,77 @@ class MyListsTest(TestCase):
         self.assertEqual(response.context['owner'], correct_user)
 
 
+@patch('lists.views.NewListForm')  #1
+class NewListViewUnitTest(unittest.TestCase):  #2
+
+    def setUp(self):
+        self.request = HttpRequest()
+        self.request.POST['text'] = 'new list item'  #3
+        self.request.user = Mock()
+
+    def test_passes_POST_data_to_NewListForm(self, mockNewListForm):
+        new_list(self.request)
+        # initialize form with post request data
+        mockNewListForm.assert_called_once_with(data=self.request.POST)
+
+
+    def test_saves_form_with_owner_if_form_valid(self, mockNewListForm):
+        mock_form = mockNewListForm.return_value
+        # has an is_valid function
+        mock_form.is_valid.return_value = True
+        new_list(self.request)
+
+        # a save method that deals with a user
+        mock_form.save.assert_called_once_with(owner=self.request.user)
+
+
+    # I'd forgotten that patching params get passed to the func
+    @patch('lists.views.redirect')  #1
+    def test_redirects_to_form_returned_object_if_form_valid(
+        self, mock_redirect, mockNewListForm  #2
+    ):
+        mock_form = mockNewListForm.return_value
+        mock_form.is_valid.return_value = True  #3
+
+        response = new_list(self.request)
+
+        self.assertEqual(response, mock_redirect.return_value)  #4
+        # save returns a list object 
+        mock_redirect.assert_called_once_with(mock_form.save.return_value) 
 
     
+    @patch('lists.views.render')
+    def test_renders_home_template_with_form_if_form_invalid(
+        self, mock_render, mockNewListForm
+    ):
+        mock_form = mockNewListForm.return_value
+        mock_form.is_valid.return_value = False
+
+        response = new_list(self.request)
+
+        self.assertEqual(response, mock_render.return_value)
+        mock_render.assert_called_once_with(
+            self.request, 'home.html', {'form': mock_form}
+        )
+
+
+    def test_does_not_save_if_form_invalid(self, mockNewListForm):
+        mock_form = mockNewListForm.return_value
+        mock_form.is_valid.return_value = False
+        new_list(self.request)
+        self.assertFalse(mock_form.save.called)
+
+
+    @patch('lists.views.redirect')
+    def test_redirects_to_form_returned_object_if_form_valid(
+        self, mock_redirect, mockNewListForm
+    ):
+        mock_form = mockNewListForm.return_value
+        mock_form.is_valid.return_value = True
+
+        response = new_list(self.request)
+
+        self.assertEqual(response, mock_redirect.return_value)
+        mock_redirect.assert_called_once_with(mock_form.save.return_value)
+
+
