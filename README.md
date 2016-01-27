@@ -5,7 +5,7 @@ The tutorial comes from the Test Driven Development with Python by Harry Perciva
 
 Compared to my first tutorial, Tango with Django, this Superlists app is a lot more simpler (though not less complex), as it's main focus is on creating a test suite for the app rather than creating a flashy application.
 
-.. picture here
+![superlists](/docs/superlists.png)
 
 ## To run locally
 * Create a directory beforehand, call it lists and ```cd``` into it
