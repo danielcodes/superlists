@@ -278,6 +278,14 @@ remove redundant code, after a passing test suite
 I panicked, turns out I needed to wipe the old new list and keep the shorter one..
 throw away some integrated tests
 
+tip: git push -f origin HEAD^:master -> to undo a push to github
+
+======================== END OF CHAPTER ===============================
+
+Chapter 20, continuous integration (CI)
+many FTs run hella slow, run them on a CI server and only focus on the current FT we're trying to pass
+
+
 
 
 
